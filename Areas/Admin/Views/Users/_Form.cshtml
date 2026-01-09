@@ -1,0 +1,36 @@
+﻿@* @model MyAPI.Models.Users
+@{
+    Layout = null;
+}
+
+<form asp-area="Admin"
+      asp-controller="Users"
+      asp-action="Edit"
+      asp-route-id="@Model.Id"
+      method="post">
+
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input asp-for="user_name" class="form-control" />
+        <span asp-validation-for="user_name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="email" class="form-control" />
+        <span asp-validation-for="email" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="is_active" class="form-check-input" />
+        <label asp-for="is_active" class="form-check-label">Active</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+        <i class="fa-solid fa-save me-1"></i> Save
+    </button>
+</form> *@

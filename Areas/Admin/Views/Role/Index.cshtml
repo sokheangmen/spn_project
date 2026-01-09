@@ -1,0 +1,27 @@
+﻿@model List<MyAPI.Models.Roles>
+@{
+    ViewData["Title"] = "Roles Management";
+}
+
+
+<a href="/Admin/Role/Create" class="btn btn-primary mb-3">New Role</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        @* <th>Description</th> *@
+        <th>Action</th>
+    </tr>
+
+    @foreach (var role in Model)
+    {
+        <tr>
+            <td>@role.role_name</td>
+            @* <td>@role.Description</td> *@
+            <td>
+                <a href="/Admin/Role/Edit/@role.Id" class="btn btn-sm btn-warning">Edit</a>
+                <a href="/Admin/Role/Delete/@role.Id" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

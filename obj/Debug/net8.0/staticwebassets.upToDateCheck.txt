@@ -1,0 +1,2 @@
+wwwroot\uploads\default.png
+wwwroot\uploads\image7.png

@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<!-- Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    /* ===== Dashboard Stats ===== */
+    .stats-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-bottom: 35px;
+    }
+
+    .stats-card {
+        border-radius: 18px;
+        padding: 22px;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s;
+        text-decoration: none; /* Remove underline if used inside <a> */
+    }
+
+        .stats-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .stats-card h3 {
+            font-size: 30px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .stats-card p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .stats-card i {
+            font-size: 32px;
+            opacity: 0.8;
+        }
+
+    /* Background gradients */
+    .bg-user {
+        background: linear-gradient(135deg,#f472b6,#ec4899);
+    }
+
+    .bg-post {
+        background: linear-gradient(135deg,#3b82f6,#2563eb);
+    }
+
+    .bg-news {
+        background: linear-gradient(135deg,#a78bfa,#7c3aed);
+    }
+
+    .bg-edu {
+        background: linear-gradient(135deg,#9ca3af,#6b7280);
+    }
+
+    .bg-video {
+        background: linear-gradient(135deg,#facc15,#f97316);
+    }
+
+    .bg-boards {
+        background: linear-gradient(135deg,#34d399,#10b981);
+    }
+
+    .bg-projects {
+        background: linear-gradient(135deg,#60a5fa,#3b82f6);
+    }
+
+    .bg-challenges {
+        background: linear-gradient(135deg,#f87171,#ef4444);
+    }
+
+    /* ===== Dashboard Shortcut Cards ===== */
+    .dashboard-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
+
+    .dashboard-card {
+        background: #fff;
+        border-radius: 18px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        color: #111;
+        transition: all 0.25s ease;
+        border: 1px solid #eee;
+        text-decoration: none; /* Remove underline */
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-card i {
+            font-size: 32px;
+            color: #4f46e5;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .dashboard-card h5 {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .dashboard-card p {
+            font-size: 14px;
+            color: #6b7280;
+            margin: 0;
+        }
+</style>
+
+<!-- Stats -->
+<div class="stats-cards">
+    <div class="stats-card bg-user">
+        <div>
+            <h3>@ViewBag.UserCount</h3>
+            <p>Users</p>
+        </div>
+        <i class="fa-solid fa-users"></i>
+    </div>
+
+    <div class="stats-card bg-post">
+        <div>
+            <h3>@ViewBag.PostCount</h3>
+            <p>Posts</p>
+        </div>
+        <i class="fa-solid fa-file-lines"></i>
+    </div>
+
+    <div class="stats-card bg-news">
+        <div>
+            <h3>@ViewBag.NewsCount</h3>
+            <p>News</p>
+        </div>
+        <i class="fa-solid fa-newspaper"></i>
+    </div>
+
+    <div class="stats-card bg-edu">
+        <div>
+            <h3>@ViewBag.EducationCount</h3>
+            <p>Education</p>
+        </div>
+        <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+</div>
+
+<!-- Shortcuts -->
+<div class="dashboard-cards">
+    <a href="/Admin/Users" class="dashboard-card">
+        <i class="fa-solid fa-users"></i>
+        <h5>Manage Users</h5>
+        <p>Edit, and control system users.</p>
+    </a>
+
+    <a href="/Admin/Role" class="dashboard-card">
+        <i class="fa-solid fa-user-shield"></i> 
+        <h5>Manage Roles</h5>
+        <p>Create and assign roles to users, control permissions.</p>
+    </a>
+
+    <a href="/Admin/Posts" class="dashboard-card">
+        <i class="fa-solid fa-file-lines"></i>
+        <h5>Manage Posts</h5>
+        <p>Approve and manage social content.</p>
+    </a>
+</div>
+

@@ -1,0 +1,27 @@
+﻿@model List<MyAPI.Models.Permissions>
+@{
+    ViewData["Title"] = "Permission Management";
+}
+
+
+<a href="/Admin/Permissions/Create" class="btn btn-primary mb-3">New Permissions</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        @* <th>Description</th> *@
+        <th>Action</th>
+    </tr>
+
+    @foreach (var permissions in Model)
+    {
+        <tr>
+            <td>@permissions.permission_name</td>
+            @* <td>@role.Description</td> *@
+            <td>
+                <a href="/Admin/Role/Edit/@permissions.Id" class="btn btn-sm btn-warning">Edit</a>
+                <a href="/Admin/Role/Delete/@permissions.Id" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

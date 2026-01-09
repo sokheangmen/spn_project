@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder1\**" />
+    <Compile Remove="NewFolder2\**" />
+    <Content Remove="NewFolder1\**" />
+    <Content Remove="NewFolder2\**" />
+    <EmbeddedResource Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="NewFolder2\**" />
+    <None Remove="NewFolder1\**" />
+    <None Remove="NewFolder2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="uploads\product1.jpg" />
+    <None Remove="uploads\product1.png" />
+    <None Remove="uploads\product10.jpg" />
+    <None Remove="uploads\product11.jpg" />
+    <None Remove="uploads\product12.jpg" />
+    <None Remove="uploads\product13.jpg" />
+    <None Remove="uploads\product14.jpg" />
+    <None Remove="uploads\product15.jpg" />
+    <None Remove="uploads\product16.jpg" />
+    <None Remove="uploads\product17.png" />
+    <None Remove="uploads\product18.png" />
+    <None Remove="uploads\product19.jpg" />
+    <None Remove="uploads\product2.png" />
+    <None Remove="uploads\product20.png" />
+    <None Remove="uploads\product21.png" />
+    <None Remove="uploads\product22.png" />
+    <None Remove="uploads\product23.png" />
+    <None Remove="uploads\product3.png" />
+    <None Remove="uploads\product4.png" />
+    <None Remove="uploads\product5.png" />
+    <None Remove="uploads\product6.png" />
+    <None Remove="uploads\product7.jpg" />
+    <None Remove="uploads\product8.jpg" />
+    <None Remove="uploads\product9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.9" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="uploads\" />
+  </ItemGroup>
+
+</Project>

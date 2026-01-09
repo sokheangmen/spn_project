@@ -1,0 +1,5 @@
+wwwroot\css\site.css
+wwwroot\uploads\default.png
+wwwroot\uploads\image1.jpg
+wwwroot\uploads\image2.jpg
+C:\Users\sokheang.men\spn_project\Web\MyAPI\wwwroot\css\site.css
