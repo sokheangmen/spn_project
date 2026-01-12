@@ -34,7 +34,7 @@ public class AuthController : Controller
             return View();
         }
 
-        // 1️⃣ Get user by username only
+        //  Get user by username only
         var user = await _db.Users
             .Include(u => u.UserRoles)
             .ThenInclude(ur => ur.Role)
@@ -42,37 +42,37 @@ public class AuthController : Controller
                 u.user_name == username &&
                 u.is_active);
 
-        // 2️⃣ Check user & password
+        // Check user & password
         if (user == null )
         {
             ViewBag.Error = "Invalid username or password";
             return View();
         }
 
-        // 3️⃣ Create claims
+        //  Create claims
         var claims = new List<Claim>
     {
         new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
         new Claim(ClaimTypes.Name, user.user_name)
     };
 
-        // 4️⃣ Add ALL roles
+        // Add ALL roles
         foreach (var userRole in user.UserRoles)
         {
             claims.Add(new Claim(ClaimTypes.Role, userRole.Role.role_name));
         }
 
-        // 5️⃣ Create identity & sign in
+        // Create identity & sign in
         var identity = new ClaimsIdentity(claims, "Web");
         var principal = new ClaimsPrincipal(identity);
 
         await HttpContext.SignInAsync("Web", principal);
 
-        // 6️⃣ Save session (optional but OK)
+        //  Save session (optional but OK)
         HttpContext.Session.SetInt32("UserId", user.Id);
         HttpContext.Session.SetString("Username", user.user_name);
 
-        // 7️⃣ Admin redirect
+        //  Admin redirect
         bool isAdmin = user.UserRoles.Any(r => r.Role.role_name == "Admin");
 
         if (isAdmin)
@@ -80,7 +80,7 @@ public class AuthController : Controller
             return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
         }
 
-        // 8️⃣ Normal user redirect
+        //  Normal user redirect
         if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl) && returnUrl != "/")
         {
             return Redirect(returnUrl);

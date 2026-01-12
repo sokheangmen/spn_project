@@ -11,5 +11,10 @@ namespace MyAPI.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public IActionResult CreatePost()
+        {
+            return View();
+        }
     }
 }

@@ -50,45 +50,12 @@ namespace MyAPI.Data
                 .HasForeignKey(rp => rp.permission_Id);
 
 
-            // ================= Seed Role =================
-            //modelBuilder.Entity<Roles>().HasData(
-            //    new Roles
-            //    {
-            //        Id = 1,
-            //        role_name = "Admin"
-            //    }
-            //);
             modelBuilder.Entity<Users>()
                 .HasOne(u => u.UserProfile)
                 .WithOne(p => p.User)
                 .HasForeignKey<UsersProfile>(p => p.User_Id);
 
-            // ================= Seed Admin User =================
-            //string adminPasswordHash = Convert.ToBase64String(
-            //    System.Security.Cryptography.SHA256.Create()
-            //    .ComputeHash(System.Text.Encoding.UTF8.GetBytes("admin1234"))
-            //);
-
-            //modelBuilder.Entity<Users>().HasData(
-            //    new Users
-            //    {
-            //        Id = 1,
-            //        user_name = "admin",
-            //        email = "admin@system.com",
-            //        password = adminPasswordHash,
-            //        is_active = true,
-            //        created_at = new DateTime(2025, 1, 1) 
-            //    }
-            //);
-
-            // ================= Assign Role to User =================
-            //modelBuilder.Entity<UserRoles>().HasData(
-            //    new UserRoles
-            //    {
-            //        user_Id = 1,
-            //        role_Id = 1
-            //    }
-            //);
+            
         }
     }
 }
