@@ -26,7 +26,7 @@ public class AuthController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login(string username, string password, string returnUrl = null)
+    public async Task<IActionResult> Login(string username, string password, string? returnUrl = null)
     {
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
         {
@@ -56,23 +56,20 @@ public class AuthController : Controller
         new Claim(ClaimTypes.Name, user.user_name)
     };
 
-        // Add ALL roles
         foreach (var userRole in user.UserRoles)
         {
             claims.Add(new Claim(ClaimTypes.Role, userRole.Role.role_name));
         }
 
-        // Create identity & sign in
+
         var identity = new ClaimsIdentity(claims, "Web");
         var principal = new ClaimsPrincipal(identity);
 
         await HttpContext.SignInAsync("Web", principal);
 
-        //  Save session (optional but OK)
         HttpContext.Session.SetInt32("UserId", user.Id);
         HttpContext.Session.SetString("Username", user.user_name);
 
-        //  Admin redirect
         bool isAdmin = user.UserRoles.Any(r => r.Role.role_name == "Admin");
 
         if (isAdmin)
@@ -80,7 +77,6 @@ public class AuthController : Controller
             return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
         }
 
-        //  Normal user redirect
         if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl) && returnUrl != "/")
         {
             return Redirect(returnUrl);

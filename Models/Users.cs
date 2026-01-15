@@ -4,6 +4,8 @@ namespace MyAPI.Models
 {
     public class Users
     {
+        internal readonly string password_hash;
+
         public int Id { get; set; }
         public string user_name { get; set; } = string.Empty;
         public string password { get; set; } = string.Empty;
