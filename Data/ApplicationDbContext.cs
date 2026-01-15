@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using MyAPI.Models;
 
 namespace MyAPI.Data
@@ -16,6 +17,8 @@ namespace MyAPI.Data
         public DbSet<UserRoles> UserRoles { get; set; }
         public DbSet<Permissions> Permissions { get; set; }
         public DbSet<RolePermissions> RolePermissions { get; set; }
+        public DbSet<Posts> Posts { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
