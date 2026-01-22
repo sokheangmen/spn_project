@@ -1,0 +1,64 @@
+﻿@model MyAPI.Models.UserProfile
+
+
+<meta charset="utf-8" />
+<title>Profile</title>
+
+<!-- IMPORTANT: version to avoid cache -->
+<link href="~/css/StyleAccProfile.css?v=10" rel="stylesheet" />
+<div class="page-layout">
+    <div class="profile-wrapper">
+
+        <!-- HEADER -->
+        <div class="profile-header">
+            <div class="acc_img">
+                <img src="@(!string.IsNullOrEmpty(Model.avatar) ? Model.avatar : "/images/defaults.png")"
+                     class="profile-avatar" />
+            </div>
+            <div class="profile_al">
+                <h2 class="profile-name">
+                    @Model.full_Name
+                    <span class="profile-username">@("@" + Model.user_name)</span>
+                </h2>
+
+                <div class="profile-actions">
+                    <button class="btn-follow">Follow</button>
+                    <button class="btn-message">Message</button>
+                </div>
+
+                <div class="profile-stats">
+                    <div>
+                        <strong>0</strong>
+                        <span>Following</span>
+                    </div>
+                    <div>
+                        <strong>0</strong>
+                        <span>Followers</span>
+                    </div>
+                    <div>
+                        <strong>0</strong>
+                        <span>Likes</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TABS -->
+        <div class="profile-tabs">
+            <span class="active">Posts</span>
+            <span>Favorite</span>
+            <span>Liked</span>
+        </div>
+
+        <!-- GRID -->
+        <div class="profile-grid">
+            <div class="post-box"></div>
+            <div class="post-box"></div>
+            <div class="post-box"></div>
+        </div>
+
+    </div>
+</div>
+

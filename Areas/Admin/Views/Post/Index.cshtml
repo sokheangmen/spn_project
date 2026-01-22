@@ -1,0 +1,29 @@
+﻿@model List<MyAPI.Models.Posts>
+@{
+    ViewData["Title"] = "Posts Management";
+}
+
+
+<a href="/Admin/Post/Create" class="btn btn-primary mb-3">New Role</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Content</th>
+        <th>Image</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var posts in Model)
+    {
+        <tr>
+            <td>@posts.content</td>
+            <td>@posts.image</td>
+            <td>@posts.status</td>
+            <td>
+                <a href="/Admin/Post/Edit/@posts.Id" class="btn btn-sm btn-warning">Edit</a>
+                <a href="/Admin/Post/Delete/@posts.Id" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
